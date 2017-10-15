@@ -10,39 +10,34 @@ namespace Week08
     {
         static void Main(string[] args)
         {
-           
-                string[] array1 = { "cat", "dog", "carrot", "bird" };
+            string[] months = new string[12];
+            months[0] = "January";
+            months[1] = "February";
+            months[2] = "March";
+            months[3] = "April";
+            months[4] = "May";
+            months[5] = "June";
+            months[6] = "July";
+            months[7] = "August";
+            months[8] = "September";
+            months[9] = "October";
+            months[10] = "November";
+            months[11] = "December";
+            // a) ค้นหาชื่อเดือนแรกที่มีความยาวน้อยที่สุด
+            string value1 = Array.Find(months,
+                element => element.Length == 3);
+            // b) ค้นหาชื่อเดือนแรกที่มีความยาวมากกว่า 10 ตัวอักษร
+            string value2 = Array.Find(months,
+                element => element.Length > 10);
+            // c) ค้นหาชื่อเดือนที่มีตัวอักษรตัวแรกเหมือนเดือนมกราคม แล้วนำมาแสดงรวมกันในบรรทัดเดียว คั่นด้วย ,
+            string[] array1 = Array.FindAll(months,
+                 element => element.StartsWith("J",
+                 StringComparison.Ordinal));
+            Console.WriteLine(value1);
+            Console.WriteLine(value2);
+            Console.WriteLine(string.Join(",", array1));
+            Console.ReadKey();
 
-                //
-                // ค้นหาสมาชิกตัวแรกที่มีค่าตามกำหนด 
-                //
-                string value1 = Array.Find(array1,
-                  element => element.StartsWith("car",
-                  StringComparison.Ordinal));
-
-                string value2 = Array.Find(array1,
-                  element => element.StartsWith("fish",
-                  StringComparison.Ordinal));
-
-                //
-                // ค้นหาสมาชิกตัวแรกที่มีความยาว string ตามกำหนด
-                //
-                string value3 = Array.Find(array1,
-                    element => element.Length == 3);
-
-                //
-                // ค้นหา string ที่มีความยาวไม่เกินค่าที่กำหนด
-                //
-                string[] array2 = Array.FindAll(array1,
-                    element => element.Length <= 4);
-
-                Console.WriteLine(value1);
-                Console.WriteLine(value2);
-                Console.WriteLine(value3);
-                Console.WriteLine(string.Join(",", array2));
-                Console.ReadLine();
-
-            
         }
     }
 }
