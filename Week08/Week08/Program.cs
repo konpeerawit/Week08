@@ -10,33 +10,46 @@ namespace Week08
     {
         static void Main(string[] args)
         {
-            string[] months = new string[12];
-            months[0] = "January";
-            months[1] = "February";
-            months[2] = "March";
-            months[3] = "April";
-            months[4] = "May";
-            months[5] = "June";
-            months[6] = "July";
-            months[7] = "August";
-            months[8] = "September";
-            months[9] = "October";
-            months[10] = "November";
-            months[11] = "December";
-            // a) ค้นหาชื่อเดือนแรกที่มีความยาวน้อยที่สุด
-            string value1 = Array.Find(months,
-                element => element.Length == 3);
-            // b) ค้นหาชื่อเดือนแรกที่มีความยาวมากกว่า 10 ตัวอักษร
-            string value2 = Array.Find(months,
-                element => element.Length > 10);
-            // c) ค้นหาชื่อเดือนที่มีตัวอักษรตัวแรกเหมือนเดือนมกราคม แล้วนำมาแสดงรวมกันในบรรทัดเดียว คั่นด้วย ,
-            string[] array1 = Array.FindAll(months,
-                 element => element.StartsWith("J",
-                 StringComparison.Ordinal));
-            Console.WriteLine(value1);
-            Console.WriteLine(value2);
-            Console.WriteLine(string.Join(",", array1));
-            Console.ReadKey();
+            // Array of characters.
+            char[] array1 = { 'q', 'w', 'e', 'r', 't',
+                'y', 'u', 'i', 'o', 'p' };
+            Array.Sort(array1);
+
+            // Array of strings.
+            string[] colors = new string[] { "red",
+              "orange", "blue", "green", "yellow", "lemon", "aqua"  };
+            Array.Sort(colors);
+
+            string[] AseanCountries = new string[] { "Cambodia", "Malaysia",
+              "Indonesia", "Singapore", "Thailand", "Philippines",
+              "Vietnam", "Brunei Darussalam", "Laos", "Myanmar" };
+
+            // C# program that uses LINQ
+            var sortAscending = from country in AseanCountries
+                                orderby country
+                                select country;
+            var sortDescending = from country in AseanCountries
+                                 orderby country descending
+                                 select country;
+
+            // print output
+            Console.WriteLine("------Character sorting----------");
+            foreach (var c in array1)
+                Console.WriteLine(c);
+
+            Console.WriteLine("------String sorting----------");
+            foreach (string color in colors)
+                Console.WriteLine(color);
+
+            Console.WriteLine("------String sort ascending----------");
+            foreach (string c in sortAscending)
+                Console.WriteLine(c);
+
+            Console.WriteLine("------String sort descending----------");
+            foreach (string c in sortDescending)
+                Console.WriteLine(c);
+            // wait
+            Console.ReadLine();
 
         }
     }
