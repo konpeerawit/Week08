@@ -10,30 +10,16 @@ namespace Week08
     {
         static void Main(string[] args)
         {
-            int[][] jagged = new int[7][];
-            int count = 0;
-            for (int row = 0; row < jagged.GetLength(0); ++row)
-            {
-                Console.Write("\nRow {0}:", row);
-                jagged[row] = new int[row + 1];
-                for (int index = 0; index < row + 1; ++index)
-                {
-                    ++count;
-                    jagged[row][index] = count;
-                    Console.Write(" {0}", count);
-                }
-            }
-            Console.WriteLine("\n\nTotals");
-            for (int row = 0; row < jagged.GetLength(0); ++row)
-            {
-                int total = 0;
-                for (int index = 0; index < jagged[row].GetLength(0); ++index)
-                {
-                    total += jagged[row][index];
-                }
-                Console.Write("\nRow {0}: {1}", row, total);
-            }
-            Console.ReadLine();
+            string[][] jagged = new string[2][];
+            jagged[0] = new string[] 
+            { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+            jagged[1] = new string[] 
+            { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
+            Console.WriteLine("Day_names of week : " + (string.Join(",", jagged[0])));
+            Console.WriteLine("Month_names of year : " + (string.Join(",", jagged[1])));
+            Console.ReadKey();
+
         }
     }
 }
