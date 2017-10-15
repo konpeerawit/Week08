@@ -10,15 +10,28 @@ namespace Week08
     {
         static void Main(string[] args)
         {
-            string[] monthsName = new string[]
-    { "January","February","March","April","May","June","July","August", "September", "October", "November",  "December" };
+            string[] Names = new string[]
+            {
+       "Afghanistan",
+       "Albania",
+       "Algeria",
+       "American Samoa",
+       "Andorra",
+       "Virgin Islands, British",
+       "Virgin Islands, US",
+       "Wallis and Futuna",
+       "Western Sahara",
+       "Yemen",
+       "Zambia",
+       "Zimbabwe",
+            };
             // C# program that uses LINQ
-            var sortAscending = from months in monthsName
-                                orderby months
-                                select months;
-            var sortDescending = from months in monthsName
-                                 orderby months descending
-                                 select months;
+            var sortAscending = from Country in Names
+                                orderby Country
+                                select Country;
+            var sortDescending = from Country in Names
+                                 orderby Country descending
+                                 select Country;
             Console.WriteLine("------String sort ascending----------");
             foreach (string c in sortAscending)
                 Console.WriteLine(c);
@@ -26,7 +39,6 @@ namespace Week08
             foreach (string c in sortDescending)
                 Console.WriteLine(c);
             Console.ReadKey();
-
         }
     }
 }
