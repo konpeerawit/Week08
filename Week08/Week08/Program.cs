@@ -10,15 +10,25 @@ namespace Week08
     {
         static void Main(string[] args)
         {
-            string[][] jagged = new string[2][];
-            jagged[0] = new string[] 
-            { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-            jagged[1] = new string[] 
-            { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
-
-            Console.WriteLine("Day_names of week : " + (string.Join(",", jagged[0])));
-            Console.WriteLine("Month_names of year : " + (string.Join(",", jagged[1])));
-            Console.ReadKey();
+            System.Collections.ArrayList list = new System.Collections.ArrayList();
+            Console.WriteLine("Create a list");
+            Console.WriteLine("List capacity = {0,2}", list.Capacity);
+            for (int i = 0; i < 100; i++)
+            {
+                Console.Write("Add int to list : {0,2} => ", i);
+                list.Add(i);
+                Console.WriteLine("List count =  {0,3}, capacity = {1,3}  ",
+                list.Count, list.Capacity);
+            }
+            Console.WriteLine("-----------------------");
+            for (int i = 0; i < 100; i++)
+            {
+                Console.Write("Remove int from list : {0,2} => ", i);
+                list.Remove(i);
+                Console.WriteLine("List count =  {0,3}, capacity = {1,3}  ",
+                list.Count, list.Capacity);
+            }
+            Console.ReadLine();
 
         }
     }
